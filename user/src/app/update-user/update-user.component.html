@@ -1,0 +1,17 @@
+<form [formGroup]="updateDataForm"  (ngSubmit)="updateUser()">
+   
+    <mat-form-field class="example-full-width">
+      <mat-label>name</mat-label>
+      <input type="text" formControlName="name" matInput placeholder="ex:vinay" >
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>email</mat-label>
+      <input type="text" formControlName="email" matInput placeholder="ex:vinay@gmail.com" >
+    </mat-form-field>
+  
+    <button  [disabled]="!updateDataForm.valid" mat-button color="primary"  type="submit" [mat-dialog-close]="true" >Update user</button>
+  
+  
+  </form>
+  

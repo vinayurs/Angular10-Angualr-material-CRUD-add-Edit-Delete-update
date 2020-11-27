@@ -1,0 +1,46 @@
+
+<form [formGroup]="insertDataForm"  (ngSubmit)="insertUser()">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>name</mat-label>
+    <input type="text" formControlName="name" matInput placeholder="ex:vinay" >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>email</mat-label>
+    <input type="text" formControlName="email" matInput placeholder="ex:vinay@gmail.com" >
+  </mat-form-field>
+
+  <button  [disabled]="!insertDataForm.valid" mat-button color="primary"  type="submit">Insert user</button>
+
+
+</form>
+
+
+
+<table mat-table [dataSource]="PeriodicElement" class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="customColumn1">
+    <mat-header-cell *matHeaderCellDef> Custom Title</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button  mat-button color="primary" (click)="deleteUser(element.id)" >Delete</button>
+      <button  mat-button color="primary" (click)="openpopup(element)" >Edit</button>
+    </mat-cell>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
